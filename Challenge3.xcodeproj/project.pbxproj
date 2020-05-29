@@ -15,6 +15,7 @@
 		F516407D247B7E5400B2F18B /* ScriptUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F516407C247B7E5400B2F18B /* ScriptUIViewController.swift */; };
 		F516407F247B88BB00B2F18B /* Script.swift in Sources */ = {isa = PBXBuildFile; fileRef = F516407E247B88BB00B2F18B /* Script.swift */; };
 		F5164081247B8C2C00B2F18B /* ScriptTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5164080247B8C2C00B2F18B /* ScriptTableViewCell.swift */; };
+		F54053A02480B245000D6DC2 /* AppCoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F540539E2480B245000D6DC2 /* AppCoreData.xcdatamodeld */; };
 		F57989F1247E1691005963E0 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F57989F0247E1691005963E0 /* HistoryViewController.swift */; };
 		F57989F5247E1EC6005963E0 /* HistoryScriptTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F57989F4247E1EC6005963E0 /* HistoryScriptTableViewCell.swift */; };
 /* End PBXBuildFile section */
@@ -30,6 +31,7 @@
 		F516407C247B7E5400B2F18B /* ScriptUIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScriptUIViewController.swift; sourceTree = "<group>"; };
 		F516407E247B88BB00B2F18B /* Script.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Script.swift; sourceTree = "<group>"; };
 		F5164080247B8C2C00B2F18B /* ScriptTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScriptTableViewCell.swift; sourceTree = "<group>"; };
+		F540539F2480B245000D6DC2 /* AppCoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AppCoreData.xcdatamodel; sourceTree = "<group>"; };
 		F57989F0247E1691005963E0 /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
 		F57989F4247E1EC6005963E0 /* HistoryScriptTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryScriptTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -67,16 +69,33 @@
 				0D639F5C2477C6690003C011 /* AppDelegate.swift */,
 				0D639F5E2477C6690003C011 /* SceneDelegate.swift */,
 				F516407E247B88BB00B2F18B /* Script.swift */,
-				F516407C247B7E5400B2F18B /* ScriptUIViewController.swift */,
-				F5164080247B8C2C00B2F18B /* ScriptTableViewCell.swift */,
-				F57989F0247E1691005963E0 /* HistoryViewController.swift */,
-				F57989F4247E1EC6005963E0 /* HistoryScriptTableViewCell.swift */,
+				F54053A22480FBA0000D6DC2 /* Scripts Screen */,
+				F54053A12480FB72000D6DC2 /* History Screen */,
 				0D639F622477C6690003C011 /* Main.storyboard */,
 				0D639F652477C66A0003C011 /* Assets.xcassets */,
 				0D639F672477C66A0003C011 /* LaunchScreen.storyboard */,
 				0D639F6A2477C66A0003C011 /* Info.plist */,
+				F540539E2480B245000D6DC2 /* AppCoreData.xcdatamodeld */,
 			);
 			path = Challenge3;
+			sourceTree = "<group>";
+		};
+		F54053A12480FB72000D6DC2 /* History Screen */ = {
+			isa = PBXGroup;
+			children = (
+				F57989F0247E1691005963E0 /* HistoryViewController.swift */,
+				F57989F4247E1EC6005963E0 /* HistoryScriptTableViewCell.swift */,
+			);
+			path = "History Screen";
+			sourceTree = "<group>";
+		};
+		F54053A22480FBA0000D6DC2 /* Scripts Screen */ = {
+			isa = PBXGroup;
+			children = (
+				F516407C247B7E5400B2F18B /* ScriptUIViewController.swift */,
+				F5164080247B8C2C00B2F18B /* ScriptTableViewCell.swift */,
+			);
+			path = "Scripts Screen";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -154,6 +173,7 @@
 				F516407D247B7E5400B2F18B /* ScriptUIViewController.swift in Sources */,
 				0D639F5D2477C6690003C011 /* AppDelegate.swift in Sources */,
 				F57989F1247E1691005963E0 /* HistoryViewController.swift in Sources */,
+				F54053A02480B245000D6DC2 /* AppCoreData.xcdatamodeld in Sources */,
 				F57989F5247E1EC6005963E0 /* HistoryScriptTableViewCell.swift in Sources */,
 				0D639F5F2477C6690003C011 /* SceneDelegate.swift in Sources */,
 				F5164081247B8C2C00B2F18B /* ScriptTableViewCell.swift in Sources */,
@@ -352,6 +372,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		F540539E2480B245000D6DC2 /* AppCoreData.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				F540539F2480B245000D6DC2 /* AppCoreData.xcdatamodel */,
+			);
+			currentVersion = F540539F2480B245000D6DC2 /* AppCoreData.xcdatamodel */;
+			path = AppCoreData.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 0D639F512477C6690003C011 /* Project object */;
 }
