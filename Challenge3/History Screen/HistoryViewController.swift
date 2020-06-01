@@ -71,7 +71,7 @@ extension HistoryViewController: UITableViewDataSource, UITableViewDelegate {
 
 extension HistoryViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        searchHistory = historyScripts.filter ({ $0.title.lowercased().prefix(searchText.count) == searchText.lowercased() })
+        searchHistory = historyScripts.filter ({ $0.title.lowercased().contains(searchText.lowercased()) })
         searching = true
         historyTableView.reloadData()
     }
