@@ -419,6 +419,14 @@
                                     <outlet property="delegate" destination="zk2-pd-ceS" id="jsw-Md-W1w"/>
                                 </connections>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mfE-at-D4H">
+                                <rect key="frame" x="170" y="580" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <segue destination="EzE-bP-bZN" kind="show" id="AGd-p2-Fpx"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -462,7 +470,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="cD3-hx-IQ0">
-                                <rect key="frame" x="0.0" y="44" width="432" height="852"/>
+                                <rect key="frame" x="0.0" y="88" width="432" height="808"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <view key="tableFooterView" contentMode="scaleToFill" id="LXf-qa-jrM">
                                     <rect key="frame" x="0.0" y="151" width="432" height="73"/>
@@ -564,6 +572,7 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <splitViewMasterSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <outlet property="SectionTableView" destination="cD3-hx-IQ0" id="EbW-iw-upx"/>
                         <outlet property="editSectionBtn" destination="MQ4-wV-qDg" id="Qfu-Ld-1y5"/>
@@ -578,11 +587,11 @@
             <objects>
                 <viewController storyboardIdentifier="sectionIntro" title="Introduction" id="efX-TN-Qm3" customClass="EditSectionViewController" customModule="createOutline" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4FB-Kt-pFR">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="U2N-os-VDP">
-                                <rect key="frame" x="0.0" y="243" width="414" height="707"/>
+                                <rect key="frame" x="0.0" y="234" width="414" height="662"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <view key="tableHeaderView" contentMode="scaleToFill" id="UI3-mz-BXh">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
@@ -668,7 +677,7 @@
                                 </connections>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hY0-Ll-TrT" customClass="CardView" customModule="createOutline" customModuleProvider="target">
-                                <rect key="frame" x="17" y="111" width="380" height="112"/>
+                                <rect key="frame" x="17" y="79" width="380" height="112"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Grab audience’s attention by asking questions or telling your audience about the big picture  " lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nqy-4r-Mob">
                                         <rect key="frame" x="15" y="43" width="357" height="49"/>
@@ -701,11 +710,11 @@
                         <constraints>
                             <constraint firstItem="hY0-Ll-TrT" firstAttribute="top" secondItem="HZM-Az-K3M" secondAttribute="top" constant="23" id="0dU-LM-uN3"/>
                             <constraint firstItem="U2N-os-VDP" firstAttribute="centerX" secondItem="hY0-Ll-TrT" secondAttribute="centerX" id="Eib-UU-vL9"/>
-                            <constraint firstAttribute="bottom" secondItem="hY0-Ll-TrT" secondAttribute="bottom" constant="673" id="G7G-kU-Fc0"/>
+                            <constraint firstAttribute="bottom" secondItem="hY0-Ll-TrT" secondAttribute="bottom" constant="651" id="G7G-kU-Fc0"/>
                             <constraint firstItem="U2N-os-VDP" firstAttribute="leading" secondItem="HZM-Az-K3M" secondAttribute="leading" id="Lfy-GY-ZkO"/>
                             <constraint firstAttribute="bottomMargin" secondItem="U2N-os-VDP" secondAttribute="bottom" constant="-88" id="MNF-Jd-EiL"/>
                             <constraint firstItem="hY0-Ll-TrT" firstAttribute="leading" secondItem="HZM-Az-K3M" secondAttribute="leading" constant="17" id="WVG-nh-bd4"/>
-                            <constraint firstItem="U2N-os-VDP" firstAttribute="top" secondItem="hY0-Ll-TrT" secondAttribute="bottom" constant="20" id="rzO-1O-ewy"/>
+                            <constraint firstItem="U2N-os-VDP" firstAttribute="top" secondItem="hY0-Ll-TrT" secondAttribute="bottom" constant="43" id="rzO-1O-ewy"/>
                             <constraint firstItem="hY0-Ll-TrT" firstAttribute="centerX" secondItem="4FB-Kt-pFR" secondAttribute="centerX" id="sQa-CA-T3u"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="HZM-Az-K3M"/>
@@ -722,7 +731,8 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
-                    <splitViewDetailSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <modalPageSheetSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <outlet property="DefaultSectionTitle" destination="eEW-ti-wnk" id="A76-px-XG7"/>
                         <outlet property="KeypointsTableView" destination="U2N-os-VDP" id="9pp-Et-MPu"/>
@@ -731,18 +741,18 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GEH-2I-ZR5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2093" y="1809"/>
+            <point key="canvasLocation" x="2092.753623188406" y="1808.7053571428571"/>
         </scene>
         <!--New Section-->
         <scene sceneID="N97-GP-ewF">
             <objects>
                 <viewController title="New Section" id="mDf-PI-lZO" customClass="EditSectionViewController" customModule="createOutline" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="itI-mM-TrF">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="FiU-Uk-OQj">
-                                <rect key="frame" x="0.0" y="174" width="414" height="668"/>
+                                <rect key="frame" x="0.0" y="206" width="414" height="690"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <view key="tableHeaderView" contentMode="scaleToFill" id="45Y-3A-vka">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
@@ -825,7 +835,7 @@
                                 </connections>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Nq-mT-Ok1">
-                                <rect key="frame" x="0.0" y="80" width="414" height="70"/>
+                                <rect key="frame" x="0.0" y="112" width="414" height="70"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Section Title" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="3MZ-rl-hZe">
                                         <rect key="frame" x="91" y="18" width="309" height="34"/>
@@ -1009,11 +1019,11 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Group 2" width="128" height="128"/>
-        <image name="Path" width="128" height="128"/>
-        <image name="Path-1" width="128" height="128"/>
+        <image name="Group 2" width="46" height="46"/>
+        <image name="Path" width="11" height="17"/>
+        <image name="Path-1" width="11" height="17"/>
         <image name="Scriptsmall" width="43" height="45"/>
-        <image name="Section" width="128" height="128"/>
+        <image name="Section" width="76" height="65"/>
         <image name="clock.fill" catalog="system" width="128" height="121"/>
         <image name="pencil" catalog="system" width="128" height="113"/>
         <image name="plus" catalog="system" width="128" height="113"/>
