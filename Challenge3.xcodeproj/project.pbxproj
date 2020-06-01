@@ -16,6 +16,9 @@
 		0DF42B5C2483B13400FD2E63 /* recorderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF42B5B2483B13400FD2E63 /* recorderViewController.swift */; };
 		0DF42B5F2483B22F00FD2E63 /* KDCircularProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF42B5E2483B22F00FD2E63 /* KDCircularProgress.swift */; };
 		0DF42B612483B32700FD2E63 /* saveRecorderTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF42B602483B32700FD2E63 /* saveRecorderTableViewController.swift */; };
+		3C42F19F2484F2FA004B5299 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C42F19E2484F2FA004B5299 /* ViewController.swift */; };
+		3C42F1A12484F313004B5299 /* addScriptSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C42F1A02484F313004B5299 /* addScriptSettingsViewController.swift */; };
+		3C42F1A32484F439004B5299 /* scriptSettingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C42F1A22484F439004B5299 /* scriptSettingTableViewCell.swift */; };
 		F516407D247B7E5400B2F18B /* ScriptUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F516407C247B7E5400B2F18B /* ScriptUIViewController.swift */; };
 		F516407F247B88BB00B2F18B /* Script.swift in Sources */ = {isa = PBXBuildFile; fileRef = F516407E247B88BB00B2F18B /* Script.swift */; };
 		F5164081247B8C2C00B2F18B /* ScriptTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5164080247B8C2C00B2F18B /* ScriptTableViewCell.swift */; };
@@ -38,6 +41,9 @@
 		0DF42B5B2483B13400FD2E63 /* recorderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = recorderViewController.swift; sourceTree = "<group>"; };
 		0DF42B5E2483B22F00FD2E63 /* KDCircularProgress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KDCircularProgress.swift; sourceTree = "<group>"; };
 		0DF42B602483B32700FD2E63 /* saveRecorderTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = saveRecorderTableViewController.swift; sourceTree = "<group>"; };
+		3C42F19E2484F2FA004B5299 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = "Scripts Screen/ScriptSetting/ViewController.swift"; sourceTree = "<group>"; };
+		3C42F1A02484F313004B5299 /* addScriptSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addScriptSettingsViewController.swift; sourceTree = "<group>"; };
+		3C42F1A22484F439004B5299 /* scriptSettingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = scriptSettingTableViewCell.swift; sourceTree = "<group>"; };
 		F516407C247B7E5400B2F18B /* ScriptUIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScriptUIViewController.swift; sourceTree = "<group>"; };
 		F516407E247B88BB00B2F18B /* Script.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Script.swift; sourceTree = "<group>"; };
 		F5164080247B8C2C00B2F18B /* ScriptTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScriptTableViewCell.swift; sourceTree = "<group>"; };
@@ -84,6 +90,7 @@
 				F54053A22480FBA0000D6DC2 /* Scripts Screen */,
 				F54053A12480FB72000D6DC2 /* History Screen */,
 				0D639F622477C6690003C011 /* Main.storyboard */,
+				3C42F19E2484F2FA004B5299 /* ViewController.swift */,
 				0D639F652477C66A0003C011 /* Assets.xcassets */,
 				0D639F672477C66A0003C011 /* LaunchScreen.storyboard */,
 				0D639F6A2477C66A0003C011 /* Info.plist */,
@@ -112,6 +119,15 @@
 			path = Recorder;
 			sourceTree = "<group>";
 		};
+		3C42F1962484F032004B5299 /* ScriptSetting */ = {
+			isa = PBXGroup;
+			children = (
+				3C42F1A02484F313004B5299 /* addScriptSettingsViewController.swift */,
+				3C42F1A22484F439004B5299 /* scriptSettingTableViewCell.swift */,
+			);
+			path = ScriptSetting;
+			sourceTree = "<group>";
+		};
 		F54053A12480FB72000D6DC2 /* History Screen */ = {
 			isa = PBXGroup;
 			children = (
@@ -126,6 +142,7 @@
 			children = (
 				F516407C247B7E5400B2F18B /* ScriptUIViewController.swift */,
 				F5164080247B8C2C00B2F18B /* ScriptTableViewCell.swift */,
+				3C42F1962484F032004B5299 /* ScriptSetting */,
 			);
 			path = "Scripts Screen";
 			sourceTree = "<group>";
@@ -208,12 +225,15 @@
 				F57989F1247E1691005963E0 /* HistoryViewController.swift in Sources */,
 				0DF42B612483B32700FD2E63 /* saveRecorderTableViewController.swift in Sources */,
 				0DF42B5F2483B22F00FD2E63 /* KDCircularProgress.swift in Sources */,
+				3C42F1A12484F313004B5299 /* addScriptSettingsViewController.swift in Sources */,
 				F54053A02480B245000D6DC2 /* AppCoreData.xcdatamodeld in Sources */,
 				0DF42B5A2483B0E700FD2E63 /* SCSiriWaveformView.m in Sources */,
+				3C42F19F2484F2FA004B5299 /* ViewController.swift in Sources */,
 				0DF42B5C2483B13400FD2E63 /* recorderViewController.swift in Sources */,
 				F57989F5247E1EC6005963E0 /* HistoryScriptTableViewCell.swift in Sources */,
 				0D639F5F2477C6690003C011 /* SceneDelegate.swift in Sources */,
 				F5164081247B8C2C00B2F18B /* ScriptTableViewCell.swift in Sources */,
+				3C42F1A32484F439004B5299 /* scriptSettingTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

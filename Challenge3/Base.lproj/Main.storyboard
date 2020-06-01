@@ -287,7 +287,7 @@
         <!--Add Scripts-->
         <scene sceneID="zXY-Sw-efb">
             <objects>
-                <viewController id="zk2-pd-ceS" customClass="addScriptViewController" customModule="challenge3_scriptSettings" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="zk2-pd-ceS" customClass="addScriptViewController" customModule="Challenge3" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="eVq-Us-d9Q">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -296,7 +296,7 @@
                                 <rect key="frame" x="0.0" y="56" width="414" height="103"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" shouldIndentWhileEditing="NO" reuseIdentifier="Title Cell" editingAccessoryType="detailButton" rowHeight="50" id="hTw-vq-THw" customClass="scriptSettingTableViewCell" customModule="challenge3_scriptSettings" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" shouldIndentWhileEditing="NO" reuseIdentifier="Title Cell" editingAccessoryType="detailButton" rowHeight="50" id="hTw-vq-THw" customClass="scriptSettingTableViewCell" customModule="Challenge3" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="hTw-vq-THw" id="bNM-8w-agL">
@@ -324,8 +324,8 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="titleLabel" destination="mh9-Mv-wQs" id="ZMy-OP-rXG"/>
-                                            <outlet property="titleTextField" destination="RBx-Sc-tv9" id="f26-Ax-2ce"/>
+                                            <outlet property="titleLabel" destination="mh9-Mv-wQs" id="H8w-gA-q5p"/>
+                                            <outlet property="titleTextField" destination="RBx-Sc-tv9" id="Ctd-kF-vdM"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -342,7 +342,7 @@
                                     <constraint firstAttribute="height" constant="288" id="TIR-St-kki"/>
                                 </constraints>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Time View" id="WPj-wy-fHp" customClass="scriptSettingTableViewCell" customModule="challenge3_scriptSettings" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Time View" id="WPj-wy-fHp" customClass="scriptSettingTableViewCell" customModule="Challenge3" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="WPj-wy-fHp" id="cHk-V0-yah">
@@ -359,10 +359,10 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="timeLabel" destination="Na4-wd-ltX" id="FxV-6s-wJM"/>
+                                            <outlet property="timeLabel" destination="Na4-wd-ltX" id="8rj-pv-619"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Time Picker" rowHeight="216" id="BDE-ya-N8A" customClass="scriptSettingTableViewCell" customModule="challenge3_scriptSettings" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Time Picker" rowHeight="216" id="BDE-ya-N8A" customClass="scriptSettingTableViewCell" customModule="Challenge3" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="71.5" width="414" height="216"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="BDE-ya-N8A" id="yhk-HI-nBf">
@@ -409,7 +409,7 @@
                                             <outlet property="hourLabel" destination="j2c-XW-NeM" id="zbS-Sw-Wtr"/>
                                             <outlet property="minLabel" destination="JoL-p5-ozR" id="hHC-aq-NqO"/>
                                             <outlet property="secLabel" destination="ufg-Md-QsR" id="JBm-qW-bMc"/>
-                                            <outlet property="timePicker" destination="iN1-dP-PHb" id="iZA-jj-q0Q"/>
+                                            <outlet property="timePicker" destination="iN1-dP-PHb" id="hSr-zm-4L6"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -437,21 +437,21 @@
                     <navigationItem key="navigationItem" title="Add Scripts" id="mMO-cd-9Jh">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="yOb-d4-OIk">
                             <connections>
-                                <action selector="cancelScriptButton:" destination="zk2-pd-ceS" id="DYk-pX-8Ak"/>
+                                <action selector="cancelScriptButton:" destination="zk2-pd-ceS" id="0dG-Ud-ymn"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="wC8-1u-m2d"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="tqt-2R-Lc0"/>
                     </navigationItem>
                     <connections>
-                        <outlet property="cancelScriptButton" destination="yOb-d4-OIk" id="tsE-u4-n7V"/>
-                        <outlet property="saveScriptButton" destination="wC8-1u-m2d" id="TGi-i1-Sdd"/>
+                        <outlet property="cancelScriptButton" destination="yOb-d4-OIk" id="TBI-xc-ujF"/>
+                        <outlet property="saveScriptButton" destination="tqt-2R-Lc0" id="cO6-er-2KB"/>
                         <outlet property="timeTableView" destination="KuE-Lr-BUx" id="o40-Pc-hjO"/>
                         <outlet property="titleTableView" destination="vuy-ge-eng" id="ZU4-sz-JZq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="anp-b9-7XE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2170" y="159"/>
+            <point key="canvasLocation" x="2096" y="159"/>
         </scene>
     </scenes>
     <resources>
