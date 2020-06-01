@@ -12,6 +12,10 @@
 		0D639F642477C6690003C011 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0D639F622477C6690003C011 /* Main.storyboard */; };
 		0D639F662477C66A0003C011 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0D639F652477C66A0003C011 /* Assets.xcassets */; };
 		0D639F692477C66A0003C011 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0D639F672477C66A0003C011 /* LaunchScreen.storyboard */; };
+		0DF42B5A2483B0E700FD2E63 /* SCSiriWaveformView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DF42B572483B0E700FD2E63 /* SCSiriWaveformView.m */; };
+		0DF42B5C2483B13400FD2E63 /* recorderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF42B5B2483B13400FD2E63 /* recorderViewController.swift */; };
+		0DF42B5F2483B22F00FD2E63 /* KDCircularProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF42B5E2483B22F00FD2E63 /* KDCircularProgress.swift */; };
+		0DF42B612483B32700FD2E63 /* saveRecorderTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF42B602483B32700FD2E63 /* saveRecorderTableViewController.swift */; };
 		F516407D247B7E5400B2F18B /* ScriptUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F516407C247B7E5400B2F18B /* ScriptUIViewController.swift */; };
 		F516407F247B88BB00B2F18B /* Script.swift in Sources */ = {isa = PBXBuildFile; fileRef = F516407E247B88BB00B2F18B /* Script.swift */; };
 		F5164081247B8C2C00B2F18B /* ScriptTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5164080247B8C2C00B2F18B /* ScriptTableViewCell.swift */; };
@@ -28,6 +32,12 @@
 		0D639F652477C66A0003C011 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0D639F682477C66A0003C011 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0D639F6A2477C66A0003C011 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0DF42B562483B0E600FD2E63 /* Challenge3-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Challenge3-Bridging-Header.h"; sourceTree = "<group>"; };
+		0DF42B572483B0E700FD2E63 /* SCSiriWaveformView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCSiriWaveformView.m; sourceTree = "<group>"; };
+		0DF42B582483B0E700FD2E63 /* SCSiriWaveformView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCSiriWaveformView.h; sourceTree = "<group>"; };
+		0DF42B5B2483B13400FD2E63 /* recorderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = recorderViewController.swift; sourceTree = "<group>"; };
+		0DF42B5E2483B22F00FD2E63 /* KDCircularProgress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KDCircularProgress.swift; sourceTree = "<group>"; };
+		0DF42B602483B32700FD2E63 /* saveRecorderTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = saveRecorderTableViewController.swift; sourceTree = "<group>"; };
 		F516407C247B7E5400B2F18B /* ScriptUIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScriptUIViewController.swift; sourceTree = "<group>"; };
 		F516407E247B88BB00B2F18B /* Script.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Script.swift; sourceTree = "<group>"; };
 		F5164080247B8C2C00B2F18B /* ScriptTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScriptTableViewCell.swift; sourceTree = "<group>"; };
@@ -66,6 +76,8 @@
 		0D639F5B2477C6690003C011 /* Challenge3 */ = {
 			isa = PBXGroup;
 			children = (
+				0DF42B5D2483B14200FD2E63 /* Recorder */,
+				0DF42B552483AFE600FD2E63 /* Timer */,
 				0D639F5C2477C6690003C011 /* AppDelegate.swift */,
 				0D639F5E2477C6690003C011 /* SceneDelegate.swift */,
 				F516407E247B88BB00B2F18B /* Script.swift */,
@@ -76,8 +88,28 @@
 				0D639F672477C66A0003C011 /* LaunchScreen.storyboard */,
 				0D639F6A2477C66A0003C011 /* Info.plist */,
 				F540539E2480B245000D6DC2 /* AppCoreData.xcdatamodeld */,
+				0DF42B582483B0E700FD2E63 /* SCSiriWaveformView.h */,
+				0DF42B572483B0E700FD2E63 /* SCSiriWaveformView.m */,
+				0DF42B562483B0E600FD2E63 /* Challenge3-Bridging-Header.h */,
 			);
 			path = Challenge3;
+			sourceTree = "<group>";
+		};
+		0DF42B552483AFE600FD2E63 /* Timer */ = {
+			isa = PBXGroup;
+			children = (
+				0DF42B5E2483B22F00FD2E63 /* KDCircularProgress.swift */,
+			);
+			path = Timer;
+			sourceTree = "<group>";
+		};
+		0DF42B5D2483B14200FD2E63 /* Recorder */ = {
+			isa = PBXGroup;
+			children = (
+				0DF42B5B2483B13400FD2E63 /* recorderViewController.swift */,
+				0DF42B602483B32700FD2E63 /* saveRecorderTableViewController.swift */,
+			);
+			path = Recorder;
 			sourceTree = "<group>";
 		};
 		F54053A12480FB72000D6DC2 /* History Screen */ = {
@@ -130,6 +162,7 @@
 				TargetAttributes = {
 					0D639F582477C6690003C011 = {
 						CreatedOnToolsVersion = 11.4.1;
+						LastSwiftMigration = 1150;
 					};
 				};
 			};
@@ -173,7 +206,11 @@
 				F516407D247B7E5400B2F18B /* ScriptUIViewController.swift in Sources */,
 				0D639F5D2477C6690003C011 /* AppDelegate.swift in Sources */,
 				F57989F1247E1691005963E0 /* HistoryViewController.swift in Sources */,
+				0DF42B612483B32700FD2E63 /* saveRecorderTableViewController.swift in Sources */,
+				0DF42B5F2483B22F00FD2E63 /* KDCircularProgress.swift in Sources */,
 				F54053A02480B245000D6DC2 /* AppCoreData.xcdatamodeld in Sources */,
+				0DF42B5A2483B0E700FD2E63 /* SCSiriWaveformView.m in Sources */,
+				0DF42B5C2483B13400FD2E63 /* recorderViewController.swift in Sources */,
 				F57989F5247E1EC6005963E0 /* HistoryScriptTableViewCell.swift in Sources */,
 				0D639F5F2477C6690003C011 /* SceneDelegate.swift in Sources */,
 				F5164081247B8C2C00B2F18B /* ScriptTableViewCell.swift in Sources */,
@@ -320,6 +357,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = Challenge3/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -328,6 +366,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = swift.Challenge3;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Challenge3/Challenge3-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -337,6 +377,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = Challenge3/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -345,6 +386,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = swift.Challenge3;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Challenge3/Challenge3-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
