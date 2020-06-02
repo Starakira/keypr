@@ -74,8 +74,25 @@ class SectionsViewController: UIViewController, UITableViewDataSource, UITableVi
     @IBOutlet weak var editSectionBtn: UIBarButtonItem!
     
     @IBAction func editSectionCell(_ sender: UIBarButtonItem) {
-        setEditing(true, animated: true)
-        SectionTableView.reloadData()
+        
+    
+        switch sender.tag {
+        case 0:
+            setEditing(true, animated: true)
+            SectionTableView.reloadData()
+            editSectionBtn.title = "Done"
+            editSectionBtn.tag = 1
+        case 1:
+            setEditing(false, animated: true)
+            SectionTableView.reloadData()
+            editSectionBtn.title = "Edit"
+             editSectionBtn.tag = 0
+        default:
+            setEditing(false, animated: true)
+            SectionTableView.reloadData()
+            editSectionBtn.title = "Edit"
+        }
+       
         
     }
     override func setEditing(_ editing: Bool, animated: Bool) {
@@ -105,8 +122,9 @@ class SectionsViewController: UIViewController, UITableViewDataSource, UITableVi
     }
 
    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-    
+        
         sectionList.remove(at: indexPath.row)
+    SectionTableView.deleteRows(at: [indexPath], with: .automatic)
     
     }
     

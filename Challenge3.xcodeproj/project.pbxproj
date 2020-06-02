@@ -19,7 +19,6 @@
 		3C42F19F2484F2FA004B5299 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C42F19E2484F2FA004B5299 /* ViewController.swift */; };
 		3C42F1A12484F313004B5299 /* addScriptSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C42F1A02484F313004B5299 /* addScriptSettingsViewController.swift */; };
 		3C42F1A32484F439004B5299 /* scriptSettingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C42F1A22484F439004B5299 /* scriptSettingTableViewCell.swift */; };
-		BA0B9D2924854A3700139F6A /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0B9D2224854A3700139F6A /* TableViewController.swift */; };
 		BA508A04248646DE00F48EE4 /* WSTagsField.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA508A01248646DE00F48EE4 /* WSTagsField.swift */; };
 		BA508A05248646DE00F48EE4 /* WSTagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA508A03248646DE00F48EE4 /* WSTagView.swift */; };
 		BA508A06248646DE00F48EE4 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA508A00248646DE00F48EE4 /* Constants.swift */; };
@@ -56,7 +55,6 @@
 		3C42F19E2484F2FA004B5299 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = "Scripts Screen/ScriptSetting/ViewController.swift"; sourceTree = "<group>"; };
 		3C42F1A02484F313004B5299 /* addScriptSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addScriptSettingsViewController.swift; sourceTree = "<group>"; };
 		3C42F1A22484F439004B5299 /* scriptSettingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = scriptSettingTableViewCell.swift; sourceTree = "<group>"; };
-		BA0B9D2224854A3700139F6A /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TableViewController.swift; path = ../../../../../createOutline/createOutline/TableViewController.swift; sourceTree = "<group>"; };
 		BA5089FF248646DE00F48EE4 /* WSTag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WSTag.swift; sourceTree = "<group>"; };
 		BA508A00248646DE00F48EE4 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		BA508A01248646DE00F48EE4 /* WSTagsField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WSTagsField.swift; sourceTree = "<group>"; };
@@ -157,7 +155,6 @@
 				BA5089FF248646DE00F48EE4 /* WSTag.swift */,
 				BA508A01248646DE00F48EE4 /* WSTagsField.swift */,
 				BA508A03248646DE00F48EE4 /* WSTagView.swift */,
-				BA0B9D2224854A3700139F6A /* TableViewController.swift */,
 				3C42F1A02484F313004B5299 /* addScriptSettingsViewController.swift */,
 				3C42F1A22484F439004B5299 /* scriptSettingTableViewCell.swift */,
 			);
@@ -272,7 +269,6 @@
 				0DF42B612483B32700FD2E63 /* saveRecorderTableViewController.swift in Sources */,
 				0DF42B5F2483B22F00FD2E63 /* KDCircularProgress.swift in Sources */,
 				3C42F1A12484F313004B5299 /* addScriptSettingsViewController.swift in Sources */,
-				BA0B9D2924854A3700139F6A /* TableViewController.swift in Sources */,
 				F54053A02480B245000D6DC2 /* AppCoreData.xcdatamodeld in Sources */,
 				0DF42B5A2483B0E700FD2E63 /* SCSiriWaveformView.m in Sources */,
 				3C42F19F2484F2FA004B5299 /* ViewController.swift in Sources */,
