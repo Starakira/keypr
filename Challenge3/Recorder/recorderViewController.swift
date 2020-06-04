@@ -40,7 +40,9 @@ class recorderViewController: UIViewController, AVAudioRecorderDelegate {
     var simpan:String?
     var salah:Int = 0
     var gaksama:Int = 0
-    
+    var sama:Int = 0
+              var plus:Int = 0
+              var akurasi:Double? = 0
     
     //variable Promter
     //en-US
@@ -103,32 +105,38 @@ class recorderViewController: UIViewController, AVAudioRecorderDelegate {
                 displayAlert(title: "Ups!", message: "Recording failed")
             }
         }else{
-            let skrip = "nama ku johan saya cakep";
-            let result = skrip.components(separatedBy: [" " , "," , ".","*","+","/"])
-             let omongan = "nama ku johan mantap ho hoho saya cakerp";
-            let result2 = omongan.components(separatedBy: [" " , "," , ".","*","+","/"])
-    
+            let skrip = "mantap sekali bos";
+            let skripLow = skrip.lowercased()
+            let result = skripLow.components(separatedBy: [" " , "," , ".","*","+","/"])
+            let simpanLow = simpan!.lowercased()
+           // let simpanLow = "mantap sekali berlau bos berlabu dlskadpkjas dasjdpiasj dasd kasd asd as";
+            let result2 = simpanLow.components(separatedBy: [" " , "," , ".","*","+","/"])
+            print(result2)
+            
+            
             let total = result.count
             print(total)
-            var sama:Int = 0
-            var plus:Int = 0
-            var akurasi:Double? = 0
-
+          
+          
             for hasil in 0...result2.count-1  {
-                print("masuk")
                 for cek in plus...hasil {
-                    if result[plus] == result2[cek] {
-                        print("sama")
-                        plus += 1
-                        sama += 1
+                    if plus < result.count {
+                        if result[plus] == result2[cek] {
+                            print("sama")
+                            plus += 1
+                            sama += 1
+                        }else{
+                            //print(cek)
+                        }
                     }else{
-                        print(cek)
+                        break
                     }
                 }
             }
             
-            akurasi! += Double(sama/total)
-            print(sama,total)
+            
+            print("Sama \(sama)")
+            akurasi! += Double(sama)/Double(total)*100
             print("akurasinya adalah : \(akurasi!)")
             
             
