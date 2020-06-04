@@ -12,6 +12,8 @@ class ScriptTitleTableViewCell: UITableViewCell, UITextFieldDelegate {
     @IBOutlet weak var tField: UITextField!
     @IBOutlet weak var tLabel: UILabel!
     
+    var scriptTitle: String = ""
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         
@@ -20,9 +22,13 @@ class ScriptTitleTableViewCell: UITableViewCell, UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if textField == tField {
-            tLabel.text = tField.text
+            
             textField.resignFirstResponder()
             return false
+        }
+        
+        func setTitle(title: String) {
+            scriptTitle = title
         }
         
         return true

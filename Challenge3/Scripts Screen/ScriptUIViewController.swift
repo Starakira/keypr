@@ -26,9 +26,8 @@ class ScriptUIViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         
-        deleteCoreData()
+//        deleteAllCoreData()
         createCoreData(id:0, title:"Johan", date:"hiya")
         createCoreData(id:1, title:"BANGUN", date:"iya")
         requestCoreData()
@@ -54,7 +53,6 @@ class ScriptUIViewController: UIViewController {
         return tempScript
     }
     
-    func createCoreData(id:Int, title:String, date:String) {
     @IBAction func scriptEditButtonAction(_ sender: UIBarButtonItem) {
         switch sender.tag {
         case 0:
@@ -81,18 +79,18 @@ class ScriptUIViewController: UIViewController {
         
         if self.isEditing
         {
-             self.scriptEditButton.title = "Done"
+            self.scriptEditButton.title = "Done"
             
             
         }
         else
         {
-             self.scriptEditButton.title = "Edit"
+            self.scriptEditButton.title = "Edit"
         }
         
     }
     
-    func createCoreData() {
+    func createCoreData(id:Int, title:String, date:String) {
         let newScript = NSEntityDescription.insertNewObject(forEntityName: "Scripts", into: context)
         
         newScript.setValue(id, forKey: "id")
@@ -170,19 +168,46 @@ extension ScriptUIViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            context.delete(id)
-        }
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-         
-        let recorderViewController = storyboard?.instantiateViewController(identifier: "record") as! recorderViewController
-        print("masuk")
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Scripts")
         
-        scripts.remove(at: indexPath.row)
-        scriptTableView.deleteRows(at: [indexPath], with: .automatic)
-        idArr.remove(at: indexPath.row)
-        titleArr.remove(at: indexPath.row)
-        dateArr.remove(at: indexPath.row)
+        
+        if editingStyle == .delete {
+            if let results = try? context.fetch(request) {
+                    if results.count > 0 {
+                        for object in results as! [NSManagedObject]{
+                            if let id = object.value(forKey: "id") as? Int16 {
+                                if (idArr[indexPath.row] == id) {
+                                    context.delete(object)
+                                }
+                            }
+                        }
+                    }
+                }
+            
+            
+            scripts.remove(at: indexPath.row)
+            scriptTableView.deleteRows(at: [indexPath], with: .automatic)
+            idArr.remove(at: indexPath.row)
+            titleArr.remove(at: indexPath.row)
+            dateArr.remove(at: indexPath.row)
+            
+            do {
+                   try context.save()
+                    print ("Core Data Saved!")
+                    print("idArr = \(idArr)")
+               } catch {
+                   //ERROR HANDLING
+               }
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let recorderViewController = storyboard?.instantiateViewController(identifier: "record") as! recorderViewController
+        
+        recorderViewController.dataSkrip = indexPath.row
+        recorderViewController.modalPresentationStyle = .automatic
+        self.present(recorderViewController, animated: true)
+        print("masuk")
     }
     
     func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
@@ -191,9 +216,6 @@ extension ScriptUIViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
         scripts[sourceIndexPath.row] = scripts[destinationIndexPath.row]
-        recorderViewController.dataSkrip = indexPath.row
-                       
-        recorderViewController.modalPresentationStyle = .automatic
-        self.present(recorderViewController, animated: true)
     }
 }
+

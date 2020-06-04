@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class ScriptSettingsViewController: UIViewController {
     @IBOutlet weak var titleTableView: UITableView!
@@ -40,8 +41,23 @@ class ScriptSettingsViewController: UIViewController {
     
     @IBAction func scriptSettingsSaveButtonAction(_ sender: Any) {
         dismiss(animated: true, completion: nil)
+        createCoreData(id: <#T##Int#>, title: <#T##String#>, date: <#T##String#>)
     }
     
+    func createCoreData(id:Int, title:String, date:String) {
+        let newScript = NSEntityDescription.insertNewObject(forEntityName: "Scripts", into: context)
+        
+        newScript.setValue(id, forKey: "id")
+        newScript.setValue(title, forKey: "title")
+        newScript.setValue(date, forKey: "date")
+        
+        do {
+            try context.save()
+            print ("Core Data Saved!")
+        } catch {
+            //ERROR HANDLING
+        }
+    }
 }
 
 extension ScriptSettingsViewController: UITableViewDataSource, UITableViewDelegate {
