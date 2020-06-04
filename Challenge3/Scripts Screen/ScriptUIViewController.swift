@@ -25,8 +25,11 @@ class ScriptUIViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
         
-        //createCoreData()
+        deleteCoreData()
+        createCoreData(id:0, title:"Johan", date:"hiya")
+        createCoreData(id:1, title:"BANGUN", date:"iya")
         requestCoreData()
         
         scripts = createScriptArray()
@@ -48,12 +51,12 @@ class ScriptUIViewController: UIViewController {
         return tempScript
     }
     
-    func createCoreData() {
+    func createCoreData(id:Int, title:String, date:String) {
         let newScript = NSEntityDescription.insertNewObject(forEntityName: "Scripts", into: context)
         
-        newScript.setValue(4, forKey: "id")
-        newScript.setValue("script4", forKey: "title")
-        newScript.setValue("111111", forKey: "date")
+        newScript.setValue(id, forKey: "id")
+        newScript.setValue(title, forKey: "title")
+        newScript.setValue(date, forKey: "date")
         
         do {
             try context.save()
@@ -117,4 +120,14 @@ extension ScriptUIViewController: UITableViewDataSource, UITableViewDelegate {
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+         
+        let recorderViewController = storyboard?.instantiateViewController(identifier: "record") as! recorderViewController
+        print("masuk")
+        
+        recorderViewController.dataSkrip = indexPath.row
+                       
+        recorderViewController.modalPresentationStyle = .automatic
+        self.present(recorderViewController, animated: true)
+    }
 }
