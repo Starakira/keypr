@@ -37,15 +37,14 @@ class recorderViewController: UIViewController, AVAudioRecorderDelegate {
         }}
     
     //Variable Sppech Recognition
-    var akurasi:Double? = 0
     var simpan:String?
-    var sama:Int = 0
-    var plus:Int = 0
     var salah:Int = 0
     var gaksama:Int = 0
     
     
     //variable Promter
+    //en-US
+    //id-ID
     
     let audioEgine = AVAudioEngine()
     let speechRecognizer : SFSpeechRecognizer? = SFSpeechRecognizer(locale: Locale(identifier: "id-ID"))
@@ -104,6 +103,35 @@ class recorderViewController: UIViewController, AVAudioRecorderDelegate {
                 displayAlert(title: "Ups!", message: "Recording failed")
             }
         }else{
+            let skrip = "nama ku johan saya cakep";
+            let result = skrip.components(separatedBy: [" " , "," , ".","*","+","/"])
+             let omongan = "nama ku johan mantap ho hoho saya cakerp";
+            let result2 = omongan.components(separatedBy: [" " , "," , ".","*","+","/"])
+    
+            let total = result.count
+            print(total)
+            var sama:Int = 0
+            var plus:Int = 0
+            var akurasi:Double? = 0
+
+            for hasil in 0...result2.count-1  {
+                print("masuk")
+                for cek in plus...hasil {
+                    if result[plus] == result2[cek] {
+                        print("sama")
+                        plus += 1
+                        sama += 1
+                    }else{
+                        print(cek)
+                    }
+                }
+            }
+            
+            akurasi! += Double(sama/total)
+            print(sama,total)
+            print("akurasinya adalah : \(akurasi!)")
+            
+            
             //SpeechRecognition
             cancelSpeechRecognization()
             
@@ -130,43 +158,6 @@ class recorderViewController: UIViewController, AVAudioRecorderDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        //Perhitungan akurasi
-        let skrip = "Hello Swift 4 2017.sungguh luar bisa,saja seperti rlu tong/20+222";
-        let result = skrip.components(separatedBy: [" " , "," , ".","*","+","/"])
-        let omongan = "Hello Swift 4 2017 sdasa.sungguh luar bisa tapi baja sih,saja seperti rlu tong/20+222";
-        let result2 = omongan.components(separatedBy: [" " , "," , ".","*","+","/"])
-        print(result2)
-        
-
-        for hasil in 0...result2.count-1  {
-                    for cek in plus...hasil {
-                   if result[plus] == result2[cek] {
-                        print("sama")
-                        plus += 1
-                        sama += 1
-                    }else if result[plus] != result2[cek] {
-                        print(cek)
-                    }
-        //               if cek == hasil {
-        //                            plus += 1
-        //                            gaksama += 1
-                    }
-                }
-        let names1 = ["John", "Paul", "Ringo"]
-        let names2 = ["Ringo", "Paul", "George"]
-        let difference = names1.difference(from: names2)
-        print(difference)
-        
-        
-        print("jumlah keseluruhan = \(result.count)")
-        print("jumlah sama = \(sama)")
-        
-        print("jumlah salah = \(salah)")
-        print(gaksama)
-        
-        //END
-        
         //Req SpeechRecognition
         self.requestPermission()
         
@@ -296,7 +287,7 @@ class recorderViewController: UIViewController, AVAudioRecorderDelegate {
                 let message = response.bestTranscription.formattedString
                 print("Message : \(message)")
               //  self.speech.text = message
-                //self.simpan = message
+                self.simpan = message
                 
                 
                 // Speaking AveragePauseDuration
@@ -314,11 +305,16 @@ class recorderViewController: UIViewController, AVAudioRecorderDelegate {
           task.finish()
           task.cancel()
           task = nil
-
+        
+        akurasiText()
           request.endAudio()
           audioEgine.stop()
           audioEgine.inputNode.removeTap(onBus: 0)
       }
+    
+    func akurasiText() {
+        
+    }
     
     //Meminta ijin ke USER menggunakan speechRecognition
 func requestPermission() {
