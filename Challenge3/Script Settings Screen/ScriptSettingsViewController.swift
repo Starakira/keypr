@@ -19,7 +19,7 @@ class ScriptSettingsViewController: UIViewController {
     @IBOutlet weak var scriptUploadTableView: UITableView!
     @IBOutlet weak var scriptSectionTableView: UITableView!
     @IBOutlet weak var scriptDeleteTableView: UITableView!
-    
+    var savedScriptText = ""
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -100,12 +100,19 @@ extension ScriptSettingsViewController: UITableViewDataSource, UITableViewDelega
         if (tableView == scriptSectionTableView){
             performSegue(withIdentifier: "Expand Section", sender: self)
         }
+        else if (tableView == scriptUploadTableView){
+            performSegue(withIdentifier: "scriptUpload", sender: self)
+        }
     }
     
     func tableView(_ tableView: UITableView, shouldHighlightRowAt indexPath: IndexPath) -> Bool {
         if (tableView == scriptSectionTableView) {
             return true
-        } else {
+        }
+        else if (tableView == scriptUploadTableView){
+            return true
+        }
+        else {
             return false
         }
     }

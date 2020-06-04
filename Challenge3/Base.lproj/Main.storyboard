@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="KMd-IO-EvX">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="o9M-oF-KiN">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -104,6 +104,29 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" id="28T-6a-FSy">
+                                <rect key="frame" x="0.0" y="22" width="414" height="403"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HZv-3g-G1j">
+                                        <rect key="frame" x="0.0" y="22" width="414" height="381"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EfS-TO-pTs">
+                                                <rect key="frame" x="0.0" y="-12" width="414" height="405"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="32"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                    </view>
+                                </subviews>
+                                <viewLayoutGuide key="safeArea" id="IRI-bN-Q96"/>
+                                <viewLayoutGuide key="contentLayoutGuide" id="4YP-R7-CAl"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="cBg-VI-44A"/>
+                            </scrollView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="55Z-IT-FzU">
                                 <rect key="frame" x="130" y="787" width="155" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -127,20 +150,6 @@
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bQn-80-Ydf">
-                                <rect key="frame" x="186" y="135" width="176" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="an7-Ov-A6o">
-                                <rect key="frame" x="186" y="181" width="190" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="ohj-Wp-MS6"/>
@@ -148,8 +157,8 @@
                     <connections>
                         <outlet property="btnStartRec" destination="55Z-IT-FzU" id="o2X-WX-szw"/>
                         <outlet property="circularProgressView" destination="dcZ-my-RIT" id="5qt-CQ-sTa"/>
-                        <outlet property="id" destination="an7-Ov-A6o" id="IMy-OI-wrq"/>
-                        <outlet property="judul1" destination="bQn-80-Ydf" id="ZWt-vN-GRM"/>
+                        <outlet property="prompter" destination="EfS-TO-pTs" id="fnh-8x-RCX"/>
+                        <outlet property="scrollView" destination="28T-6a-FSy" id="ihy-kf-qUx"/>
                         <outlet property="timerLabel" destination="ta4-oz-pZU" id="4f8-i8-nsB"/>
                     </connections>
                 </viewController>
@@ -748,7 +757,7 @@
                                 <rect key="frame" x="20" y="80" width="376" height="333"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter Keypoint" textAlignment="center" minimumFontSize="22" translatesAutoresizingMaskIntoConstraints="NO" id="ska-22-Z3i">
-                                        <rect key="frame" x="8" y="16" width="360" height="28"/>
+                                        <rect key="frame" x="8" y="16" width="360" height="27"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
                                         <textInputTraits key="textInputTraits"/>
                                         <connections>
@@ -756,7 +765,7 @@
                                         </connections>
                                     </textField>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="0 Keywords" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YbM-NR-e3h">
-                                        <rect key="frame" x="68" y="44" width="240" height="24"/>
+                                        <rect key="frame" x="68" y="43" width="240" height="24"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="24" id="OSC-5g-f0q"/>
@@ -766,7 +775,7 @@
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mEu-nJ-T54">
-                                        <rect key="frame" x="0.0" y="81" width="376" height="1"/>
+                                        <rect key="frame" x="0.0" y="80" width="376" height="2"/>
                                         <color key="backgroundColor" systemColor="systemGray5Color" red="0.8980392157" green="0.8980392157" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M6T-K8-DZz">
@@ -870,7 +879,7 @@
         <!--Script Settings-->
         <scene sceneID="Gb7-Yc-ige">
             <objects>
-                <viewController id="tUY-JW-chC" customClass="ScriptSettingsViewController" customModule="Challenge3" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="scriptSettings" id="tUY-JW-chC" customClass="ScriptSettingsViewController" customModule="Challenge3" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="iXQ-bC-zBM">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1075,6 +1084,7 @@
                         <outlet property="timeTableView" destination="ZCr-G2-1dK" id="hTA-wu-fOZ"/>
                         <outlet property="titleTableView" destination="CAV-4U-gXm" id="P3g-ks-Yjn"/>
                         <segue destination="sFn-k8-XCk" kind="presentation" identifier="Expand Section" id="IXq-D7-mMI"/>
+                        <segue destination="2Ko-7L-cmQ" kind="show" identifier="scriptUpload" id="JSq-S2-5r0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0OM-wh-jFs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1117,6 +1127,42 @@
             </objects>
             <point key="canvasLocation" x="1330.4347826086957" y="946.875"/>
         </scene>
+        <!--Script Upload View Controller-->
+        <scene sceneID="TQ6-2C-h4K">
+            <objects>
+                <viewController id="2Ko-7L-cmQ" customClass="ScriptUploadViewController" customModule="Challenge3" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="4zK-Bv-MsB">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="GU4-5r-jzG">
+                                <rect key="frame" x="0.0" y="88" width="414" height="507"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="wxV-sy-4gH"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="iEQ-jv-Har">
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="q3g-1V-rcC">
+                            <connections>
+                                <action selector="saveButton:" destination="2Ko-7L-cmQ" id="1nC-la-kKG"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="scriptField" destination="GU4-5r-jzG" id="LGC-Yf-0c1"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hzs-hR-TEQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2865" y="159"/>
+        </scene>
     </scenes>
     <resources>
         <image name="Group 2" width="46" height="46"/>
@@ -1124,8 +1170,8 @@
         <image name="Path-1" width="11" height="17"/>
         <image name="Scriptsmall" width="43" height="45"/>
         <image name="Section" width="76" height="65"/>
-        <image name="clock.fill" catalog="system" width="128" height="121"/>
-        <image name="pencil" catalog="system" width="128" height="113"/>
-        <image name="plus" catalog="system" width="128" height="113"/>
+        <image name="clock.fill" catalog="system" width="64" height="60"/>
+        <image name="pencil" catalog="system" width="64" height="56"/>
+        <image name="plus" catalog="system" width="64" height="56"/>
     </resources>
 </document>

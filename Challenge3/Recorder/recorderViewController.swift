@@ -18,9 +18,17 @@ class recorderViewController: UIViewController, AVAudioRecorderDelegate {
     var dataSkrip:Int!
     var idJudul:Int16?
     var judul:String? = ""
+    //prompter
+    var promptext = ""
+    @IBOutlet weak var prompter: UILabel!
+    @IBOutlet weak var scrollView: UIScrollView!
     
-    @IBOutlet weak var judul1: UILabel!
-    @IBOutlet weak var id: UILabel!
+    
+    
+    
+    
+    
+   
     //IBOulet
     @IBOutlet weak var circularProgressView: KDCircularProgress!
     @IBOutlet weak var btnStartRec: UIButton!
@@ -174,15 +182,19 @@ class recorderViewController: UIViewController, AVAudioRecorderDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        //prompter
+        //prompter.text = promptext
+        // Do any additional setup after loading the view.
+        //scrollView.contentLayoutGuide.bottomAnchor.constraint(equalTo: prompter.bottomAnchor).isActive = true
         //Req SpeechRecognition
         self.requestPermission()
         
-        requestCoreData()
-        judul1.text = judul ?? "no data"
-        id.text = String(idJudul ?? 0)
-        print("idJudul : \(idJudul!)")
-        print("Judul :\(judul!)")
-        print(dataSkrip!)
+//        requestCoreData()
+//        judul1.text = judul ?? "no data"
+//        id.text = String(idJudul ?? 0)
+//        print("idJudul : \(idJudul!)")
+//        print("Judul :\(judul!)")
+//        print(dataSkrip!)
         
         
         //Countdown
@@ -365,24 +377,25 @@ func alertView(message : String) {
         }))
     }
     
-    func requestCoreData() {
-        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Scripts")
-        do {
-            let results = try context.fetch(request)
-            
-            if results.count > 0 {
-                for result in results as! [NSManagedObject]{
-                    if let id = result.value(forKey: "id") as? Int16 {
-                        if dataSkrip == id {
-                            idJudul = id
-                            judul = result.value(forKey: "title") as? String
-                            
-                        }
-                    }
-                }
-            }
-        } catch {
-            //ERROR HANDLING
-        }
-    }
+//        func requestCoreData() {
+//            let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Scripts")
+//            do {
+//                let results = try context.fetch(request)
+//
+//                if results.count > 0 {
+//                    for result in results as! [NSManagedObject]{
+//                        if let id = result.value(forKey: "id") as? Int16 {
+//                            if dataSkrip == id {
+//                                idJudul = id
+//                                judul = result.value(forKey: "title") as? String
+//
+//                            }
+//                        }
+//                    }
+//                }
+//            } catch {
+//                //ERROR HANDLING
+//            }
+//        }
+//    }
 }
