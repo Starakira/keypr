@@ -14,7 +14,11 @@ var scripts = [Script]()
 let appDelegate = UIApplication.shared.delegate as! AppDelegate
 let context = appDelegate.persistentContainer.viewContext
 
-class ScriptUIViewController: UIViewController {
+class ScriptUIViewController: UIViewController, PassCoreData {
+    func passData() {
+        scriptTableView.reloadData()
+    }
+    
     @IBOutlet var scriptTableView: UITableView!
     @IBOutlet weak var scriptEditButton: UIBarButtonItem!
     
@@ -28,8 +32,8 @@ class ScriptUIViewController: UIViewController {
         super.viewDidLoad()
         
 //        deleteAllCoreData()
-        createCoreData(id:0, title:"Johan", date:"hiya")
-        createCoreData(id:1, title:"BANGUN", date:"iya")
+//        createCoreData(id:0, title:"Johan", date:"hiya")
+//        createCoreData(id:1, title:"BANGUN", date:"iya")
         requestCoreData()
         
         print(idArr)

@@ -9,6 +9,10 @@
 import UIKit
 import CoreData
 
+protocol PassCoreData {
+    func passData()
+}
+
 class ScriptSettingsViewController: UIViewController {
     @IBOutlet weak var titleTableView: UITableView!
     @IBOutlet weak var timeTableView: UITableView!
@@ -41,7 +45,7 @@ class ScriptSettingsViewController: UIViewController {
     
     @IBAction func scriptSettingsSaveButtonAction(_ sender: Any) {
         dismiss(animated: true, completion: nil)
-        createCoreData(id: <#T##Int#>, title: <#T##String#>, date: <#T##String#>)
+        createCoreData(id: 1, title: "Script2", date: "12")
     }
     
     func createCoreData(id:Int, title:String, date:String) {

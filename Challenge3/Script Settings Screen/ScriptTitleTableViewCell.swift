@@ -22,15 +22,14 @@ class ScriptTitleTableViewCell: UITableViewCell, UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if textField == tField {
-            
+            setTitle(title: textField.text ?? "")
             textField.resignFirstResponder()
             return false
         }
-        
-        func setTitle(title: String) {
-            scriptTitle = title
-        }
-        
         return true
+    }
+    
+    func setTitle(title: String) {
+        scriptTitle = title
     }
 }
