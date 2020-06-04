@@ -79,7 +79,7 @@ class recorderViewController: UIViewController, AVAudioRecorderDelegate {
                 //WAVE SOUND
                 let bounds = UIScreen.main.bounds
                                                     
-                waveformView = SCSiriWaveformView(frame: CGRect(x:0, y: 400, width: bounds.width, height: 300))
+                waveformView = SCSiriWaveformView(frame: CGRect(x:0, y: 600, width: bounds.width, height: 200))
                 waveformView.waveColor = UIColor.black
                 waveformView.backgroundColor = .clear
                 waveformView.primaryWaveLineWidth = 4.0
