@@ -37,8 +37,8 @@ class ScriptSettingsViewController: UIViewController {
     @IBAction func scriptSettingsCancelButtonAction(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
+    
     @IBAction func scriptSettingsSaveButtonAction(_ sender: Any) {
-        
         dismiss(animated: true, completion: nil)
     }
     

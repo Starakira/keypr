@@ -13,7 +13,6 @@ class SectionsViewController: UIViewController, UITableViewDataSource, UITableVi
    
     var sectionList = [Section(), Section(), Section()
     ]
-    var editStatus = 0
     @IBOutlet weak var SectionTableView: UITableView!
     override func viewDidLoad() {
     super.viewDidLoad()
@@ -38,11 +37,6 @@ class SectionsViewController: UIViewController, UITableViewDataSource, UITableVi
        
        func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = SectionTableView.dequeueReusableCell(withIdentifier: "sectionCell", for: indexPath) as! SectionTableViewCell
-        
-        if editStatus == 1 {
-            cell.cevronCell.isHidden = true
-            
-        }
       
         cell.titleCell.text = sectionList[indexPath.row].SectionTitle
         cell.subtitleCell.text = "\(sectionList[indexPath.row].keypoints.count) Keypoints"
@@ -97,7 +91,6 @@ class SectionsViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     override func setEditing(_ editing: Bool, animated: Bool) {
         super.setEditing(editing, animated: animated)
-        editStatus = 1
         SectionTableView.setEditing(editing, animated: true)
         
         if self.isEditing
@@ -133,7 +126,7 @@ class SectionsViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     
     func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
-        //
+        sectionList[sourceIndexPath.row] = sectionList[destinationIndexPath.row]
     }
        
        

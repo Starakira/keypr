@@ -112,12 +112,12 @@
 		0D639F5B2477C6690003C011 /* Challenge3 */ = {
 			isa = PBXGroup;
 			children = (
-				F5AEEFC02488E63400C88009 /* Script Settings Screen */,
-				0DF42B5D2483B14200FD2E63 /* Recorder */,
-				0DF42B552483AFE600FD2E63 /* Timer */,
 				0D639F5C2477C6690003C011 /* AppDelegate.swift */,
 				0D639F5E2477C6690003C011 /* SceneDelegate.swift */,
 				F516407E247B88BB00B2F18B /* Script.swift */,
+				F5AEEFC02488E63400C88009 /* Script Settings Screen */,
+				0DF42B5D2483B14200FD2E63 /* Recorder */,
+				0DF42B552483AFE600FD2E63 /* Timer */,
 				F54053A22480FBA0000D6DC2 /* Scripts Screen */,
 				F54053A12480FB72000D6DC2 /* History Screen */,
 				0D639F622477C6690003C011 /* Main.storyboard */,

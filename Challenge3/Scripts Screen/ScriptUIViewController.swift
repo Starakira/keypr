@@ -9,13 +9,14 @@
 import UIKit
 import CoreData
 
-var scripts: [Script] = []
+var scripts = [Script]()
 
 let appDelegate = UIApplication.shared.delegate as! AppDelegate
 let context = appDelegate.persistentContainer.viewContext
 
 class ScriptUIViewController: UIViewController {
     @IBOutlet var scriptTableView: UITableView!
+    @IBOutlet weak var scriptEditButton: UIBarButtonItem!
     
     var selectedIndex = Int()
     
@@ -28,6 +29,8 @@ class ScriptUIViewController: UIViewController {
         
         //createCoreData()
         requestCoreData()
+        
+        print(idArr)
         
         scripts = createScriptArray()
         
@@ -48,10 +51,47 @@ class ScriptUIViewController: UIViewController {
         return tempScript
     }
     
+    @IBAction func scriptEditButtonAction(_ sender: UIBarButtonItem) {
+        switch sender.tag {
+        case 0:
+            setEditing(true, animated: true)
+            scriptTableView.reloadData()
+            scriptEditButton.title = "Done"
+            scriptEditButton.tag = 1
+        case 1:
+            setEditing(false, animated: true)
+            scriptTableView.reloadData()
+            scriptEditButton.title = "Edit"
+            scriptEditButton.tag = 0
+        default:
+            setEditing(false, animated: true)
+            scriptTableView.reloadData()
+            scriptEditButton.title = "Edit"
+        }
+        
+    }
+    
+    override func setEditing(_ editing: Bool, animated: Bool) {
+        super.setEditing(editing, animated: animated)
+        scriptTableView.setEditing(editing, animated: true)
+        
+        if self.isEditing
+        {
+             self.scriptEditButton.title = "Done"
+            
+            
+        }
+        else
+        {
+             self.scriptEditButton.title = "Edit"
+        }
+        
+    }
+    
     func createCoreData() {
         let newScript = NSEntityDescription.insertNewObject(forEntityName: "Scripts", into: context)
         
-        newScript.setValue(4, forKey: "id")
+        newScript.setValue(idArr.count+1, forKey: "id")
         newScript.setValue("script4", forKey: "title")
         newScript.setValue("111111", forKey: "date")
         
@@ -90,7 +130,7 @@ class ScriptUIViewController: UIViewController {
         }
     }
     
-    func deleteCoreData() {
+    func deleteAllCoreData() {
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Scripts")
         let delete = NSBatchDeleteRequest(fetchRequest: request)
         
@@ -117,4 +157,31 @@ extension ScriptUIViewController: UITableViewDataSource, UITableViewDelegate {
         return cell
     }
     
+    func tableView(_ tableView: UITableView, shouldIndentWhileEditingRowAt indexPath: IndexPath) -> Bool {
+        return false
+    }
+    
+    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+        return .delete
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            context.delete(id)
+        }
+        
+        scripts.remove(at: indexPath.row)
+        scriptTableView.deleteRows(at: [indexPath], with: .automatic)
+        idArr.remove(at: indexPath.row)
+        titleArr.remove(at: indexPath.row)
+        dateArr.remove(at: indexPath.row)
+    }
+    
+    func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        scripts[sourceIndexPath.row] = scripts[destinationIndexPath.row]
+    }
 }
