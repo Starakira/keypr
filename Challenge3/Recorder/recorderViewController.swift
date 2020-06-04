@@ -9,6 +9,7 @@
 import UIKit
 import AVFoundation
 import CoreGraphics
+import Speech
 
 class recorderViewController: UIViewController, AVAudioRecorderDelegate {
 
@@ -24,6 +25,7 @@ class recorderViewController: UIViewController, AVAudioRecorderDelegate {
     var audioPlayer:AVAudioPlayer!
     var numberOfRecords = 0
     
+    
     //Variable Timer
     var totalTimeInSec:Double = 10
     var timer : Timer?
@@ -33,6 +35,24 @@ class recorderViewController: UIViewController, AVAudioRecorderDelegate {
         timer!.invalidate()
         }
         }}
+    
+    //Variable Sppech Recognition
+    var akurasi:Double? = 0
+    var simpan:String?
+    var sama:Int = 0
+    var plus:Int = 0
+    var salah:Int = 0
+    var gaksama:Int = 0
+    
+    
+    //variable Promter
+    
+    let audioEgine = AVAudioEngine()
+    let speechRecognizer : SFSpeechRecognizer? = SFSpeechRecognizer(locale: Locale(identifier: "id-ID"))
+    let request = SFSpeechAudioBufferRecognitionRequest()
+    var task: SFSpeechRecognitionTask!
+    var isStart: Bool = false
+    
     
 
     //Button Start Record
@@ -51,7 +71,10 @@ class recorderViewController: UIViewController, AVAudioRecorderDelegate {
             
             //Start audio recording
             do{
-        
+                
+                //SpeechRecognition
+                startSpeechRecognization()
+                
                 //WAVE SOUND
                 let bounds = UIScreen.main.bounds
                                                     
@@ -81,14 +104,19 @@ class recorderViewController: UIViewController, AVAudioRecorderDelegate {
                 displayAlert(title: "Ups!", message: "Recording failed")
             }
         }else{
+            //SpeechRecognition
+            cancelSpeechRecognization()
+            
+            //Countdown Timer
             timer!.invalidate()
             circularProgressView.animate(fromAngle: circularProgressView.angle, toAngle: 0, duration: 0.5, completion: nil)
+            
             //Stop audio Recording
             audioRecorder.stop()
             btnStartRec.setTitle("Start Recording", for: .normal)
             
+            //Kirim Data
             let data = storyboard?.instantiateViewController(identifier: "saveRecorder") as! saveRecorderTableViewController
-           
             UserDefaults.standard.set(numberOfRecords ,forKey: "myNumber")
             data.jumlahRecord = numberOfRecords
                           
@@ -102,13 +130,52 @@ class recorderViewController: UIViewController, AVAudioRecorderDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        timerLabel.text = "Time"
         
+        //Perhitungan akurasi
+        let skrip = "Hello Swift 4 2017.sungguh luar bisa,saja seperti rlu tong/20+222";
+        let result = skrip.components(separatedBy: [" " , "," , ".","*","+","/"])
+        let omongan = "Hello Swift 4 2017 sdasa.sungguh luar bisa tapi baja sih,saja seperti rlu tong/20+222";
+        let result2 = omongan.components(separatedBy: [" " , "," , ".","*","+","/"])
+        print(result2)
+        
+
+        for hasil in 0...result2.count-1  {
+                    for cek in plus...hasil {
+                   if result[plus] == result2[cek] {
+                        print("sama")
+                        plus += 1
+                        sama += 1
+                    }else if result[plus] != result2[cek] {
+                        print(cek)
+                    }
+        //               if cek == hasil {
+        //                            plus += 1
+        //                            gaksama += 1
+                    }
+                }
+        let names1 = ["John", "Paul", "Ringo"]
+        let names2 = ["Ringo", "Paul", "George"]
+        let difference = names1.difference(from: names2)
+        print(difference)
+        
+        
+        print("jumlah keseluruhan = \(result.count)")
+        print("jumlah sama = \(sama)")
+        
+        print("jumlah salah = \(salah)")
+        print(gaksama)
+        
+        //END
+        
+        //Req SpeechRecognition
+        self.requestPermission()
+        
+        //Countdown
+        timerLabel.text = "Time"
         timeInSec = totalTimeInSec
         
         //Setting up Session (Memberikan Permission ke hp unutk menggunakan RECORD)
         recordingSession = AVAudioSession.sharedInstance()
-        
         if let number:Int = UserDefaults.standard.object(forKey: "myNumber") as? Int {
             numberOfRecords = number
         }
@@ -178,5 +245,103 @@ class recorderViewController: UIViewController, AVAudioRecorderDelegate {
       alertController.addAction(UIAlertAction(title: button, style: style,handler: nil))
         self.present(alertController, animated: true, completion: nil)
     }
+    
+    func startSpeechRecognization(){
+            let node = audioEgine.inputNode
+            let recordingFormat = node.outputFormat(forBus: 0)
+            
+            node.installTap(onBus: 0, bufferSize: 1024, format: recordingFormat) { buffer, _ in
+                self.request.append(buffer)
+            }
+            
+            //AVAudioEngine bertanggung jawab untuk menerima sinyal audio dari mikrofon.
+            audioEgine.prepare()
+            do{
+                try audioEgine.start()
+                print("mulai")
+            }catch{
+                alertView(message: "ERROR comes here to starting audio listner =\(error.localizedDescription) ")
+                print("ERROR comes here to starting audio listner =\(error.localizedDescription) ")
+            }
+            
+            
+            //Mengecek apakah support pada perangkat
+            guard let myRecognization = SFSpeechRecognizer() else {
+                self.alertView(message: "Recogization is not allow on your local")
+                print("Not Support")
+                return
+            }
+            
+            //Memberitahu user internet tidak tersedia
+            if !myRecognization.isAvailable {
+                self.alertView(message: " Recogization is free right now, please try again aftar some time")
+                print("Internet tidak tersedia")
+                return
+            }
+            
+            // SFSpeechRecognitionTask untuk mentranskripsikan audio ke teks.
+            task = speechRecognizer!.recognitionTask(with: request, resultHandler: { (response, error) in
+                guard let response = response else {
+                    if error != nil {
+                        self.alertView(message: error.debugDescription)
+                        print("ndd suara yang masuk")
+                    }else {
+                        self.alertView(message: "Problem in giving the responses")
+                        print("MASUK")
+                    }
+                    return
+                }
+                
+                
+                let message = response.bestTranscription.formattedString
+                print("Message : \(message)")
+              //  self.speech.text = message
+                //self.simpan = message
+                
+                
+                // Speaking AveragePauseDuration
+                if response.isFinal{
+                let speakingRate = response.bestTranscription.speakingRate
+                print("speakingRate : \(speakingRate)")
+                let averagePauseDuration = response.bestTranscription.averagePauseDuration
+                print("averagePauseDuration : \(averagePauseDuration)")
+                }
+            })
+        }
+    
+    //func untuk mengulang dari awal Rekaman otoamatis akan di hapus
+      func cancelSpeechRecognization() {
+          task.finish()
+          task.cancel()
+          task = nil
 
+          request.endAudio()
+          audioEgine.stop()
+          audioEgine.inputNode.removeTap(onBus: 0)
+      }
+    
+    //Meminta ijin ke USER menggunakan speechRecognition
+func requestPermission() {
+    self.btnStartRec.isEnabled = false
+    SFSpeechRecognizer.requestAuthorization { (authStatus) in OperationQueue.main.addOperation {
+        if authStatus == .authorized {
+            print("ACCEPTED")
+            self.btnStartRec.isEnabled = true
+        }else if authStatus == .denied {
+            self.alertView(message: "User denied the permission")
+        }else if authStatus == .notDetermined {
+            self.alertView(message: "Is User phone there is no speech recognization")
+        }else if authStatus == .restricted {
+            self.alertView(message: "User has been restricted for using the speech recognization")
+        }
+        }
+    }
+}
+    
+func alertView(message : String) {
+        let controller = UIAlertController.init(title: "Error ocured ...!", message: message, preferredStyle: .alert)
+        controller.addAction(UIAlertAction(title: "OK", style: .default, handler: { (_) in
+            controller.dismiss(animated: true, completion: nil)
+        }))
+    }
 }
