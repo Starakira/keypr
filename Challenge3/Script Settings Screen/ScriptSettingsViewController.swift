@@ -33,6 +33,15 @@ class ScriptSettingsViewController: UIViewController {
         scriptDeleteTableView.dataSource = self
         scriptDeleteTableView.delegate = self
     }
+    
+    @IBAction func scriptSettingsCancelButtonAction(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
+    @IBAction func scriptSettingsSaveButtonAction(_ sender: Any) {
+        
+        dismiss(animated: true, completion: nil)
+    }
+    
 }
 
 extension ScriptSettingsViewController: UITableViewDataSource, UITableViewDelegate {
@@ -67,7 +76,17 @@ extension ScriptSettingsViewController: UITableViewDataSource, UITableViewDelega
         }
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if (tableView == scriptSectionTableView){
+            performSegue(withIdentifier: "Expand Section", sender: self)
+        }
+    }
+    
     func tableView(_ tableView: UITableView, shouldHighlightRowAt indexPath: IndexPath) -> Bool {
-        return false
+        if (tableView == scriptSectionTableView) {
+            return true
+        } else {
+            return false
+        }
     }
 }

@@ -69,7 +69,6 @@ class EditSectionViewController: UIViewController, UITableViewDelegate, UITableV
         let vc = storyboard?.instantiateViewController(identifier: "editKp") as! AddKeypointViewController
                vc.delegate = self
               
-               
                self.navigationController?.pushViewController(vc, animated: true)
     }
 

@@ -26,8 +26,7 @@ class ScriptUIViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        createCoreData()
-        
+        //createCoreData()
         requestCoreData()
         
         scripts = createScriptArray()
