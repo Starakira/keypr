@@ -10,9 +10,17 @@ import UIKit
 import AVFoundation
 import CoreGraphics
 import Speech
+import CoreData
+
 
 class recorderViewController: UIViewController, AVAudioRecorderDelegate {
 
+    var dataSkrip:Int!
+    var idJudul:Int16?
+    var judul:String? = ""
+    
+    @IBOutlet weak var judul1: UILabel!
+    @IBOutlet weak var id: UILabel!
     //IBOulet
     @IBOutlet weak var circularProgressView: KDCircularProgress!
     @IBOutlet weak var btnStartRec: UIButton!
@@ -79,7 +87,7 @@ class recorderViewController: UIViewController, AVAudioRecorderDelegate {
                 //WAVE SOUND
                 let bounds = UIScreen.main.bounds
                                                     
-                waveformView = SCSiriWaveformView(frame: CGRect(x:0, y: 400, width: bounds.width, height: 300))
+                waveformView = SCSiriWaveformView(frame: CGRect(x:0, y: 600, width: bounds.width, height: 200))
                 waveformView.waveColor = UIColor.black
                 waveformView.backgroundColor = .clear
                 waveformView.primaryWaveLineWidth = 4.0
@@ -168,6 +176,14 @@ class recorderViewController: UIViewController, AVAudioRecorderDelegate {
         super.viewDidLoad()
         //Req SpeechRecognition
         self.requestPermission()
+        
+        requestCoreData()
+        judul1.text = judul ?? "no data"
+        id.text = String(idJudul ?? 0)
+        print("idJudul : \(idJudul!)")
+        print("Judul :\(judul!)")
+        print(dataSkrip!)
+        
         
         //Countdown
         timerLabel.text = "Time"
@@ -347,5 +363,26 @@ func alertView(message : String) {
         controller.addAction(UIAlertAction(title: "OK", style: .default, handler: { (_) in
             controller.dismiss(animated: true, completion: nil)
         }))
+    }
+    
+    func requestCoreData() {
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Scripts")
+        do {
+            let results = try context.fetch(request)
+            
+            if results.count > 0 {
+                for result in results as! [NSManagedObject]{
+                    if let id = result.value(forKey: "id") as? Int16 {
+                        if dataSkrip == id {
+                            idJudul = id
+                            judul = result.value(forKey: "title") as? String
+                            
+                        }
+                    }
+                }
+            }
+        } catch {
+            //ERROR HANDLING
+        }
     }
 }

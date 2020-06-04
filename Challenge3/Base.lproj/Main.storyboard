@@ -99,7 +99,7 @@
         <!--Recorder View Controller-->
         <scene sceneID="LN6-Rh-Gh1">
             <objects>
-                <viewController id="o9M-oF-KiN" customClass="recorderViewController" customModule="Challenge3" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="record" id="o9M-oF-KiN" customClass="recorderViewController" customModule="Challenge3" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="U2m-Dg-K0l">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -114,11 +114,11 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dcZ-my-RIT" customClass="KDCircularProgress" customModule="Challenge3" customModuleProvider="target">
-                                <rect key="frame" x="33" y="168" width="348" height="302"/>
+                                <rect key="frame" x="89" y="433" width="236" height="205"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ta4-oz-pZU">
-                                        <rect key="frame" x="123" y="125" width="103" height="53"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ta4-oz-pZU">
+                                        <rect key="frame" x="67" y="76" width="103" height="53"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="44"/>
                                         <nil key="textColor"/>
@@ -127,6 +127,20 @@
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bQn-80-Ydf">
+                                <rect key="frame" x="186" y="135" width="176" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="an7-Ov-A6o">
+                                <rect key="frame" x="186" y="181" width="190" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="ohj-Wp-MS6"/>
@@ -134,12 +148,14 @@
                     <connections>
                         <outlet property="btnStartRec" destination="55Z-IT-FzU" id="o2X-WX-szw"/>
                         <outlet property="circularProgressView" destination="dcZ-my-RIT" id="5qt-CQ-sTa"/>
+                        <outlet property="id" destination="an7-Ov-A6o" id="IMy-OI-wrq"/>
+                        <outlet property="judul1" destination="bQn-80-Ydf" id="ZWt-vN-GRM"/>
                         <outlet property="timerLabel" destination="ta4-oz-pZU" id="4f8-i8-nsB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MbO-rZ-qje" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4121.739130434783" y="158.70535714285714"/>
+            <point key="canvasLocation" x="3995.652173913044" y="158.70535714285714"/>
         </scene>
         <!--Save Recorder Table View Controller-->
         <scene sceneID="VIu-cZ-fvY">
