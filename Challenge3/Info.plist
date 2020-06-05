@@ -23,7 +23,7 @@
 	<key>NSMicrophoneUsageDescription</key>
 	<string>Can i use the mic ?</string>
 	<key>NSSpeechRecognitionUsageDescription</key>
-	<string>Tolonglah kasi ijin aja.OKAY!</string>
+	<string>Can i use the Speech Recognition</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
