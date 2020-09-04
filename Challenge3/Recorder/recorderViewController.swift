@@ -19,15 +19,9 @@ class recorderViewController: UIViewController, AVAudioRecorderDelegate {
     var idJudul:Int16?
     var judul:String? = ""
     //prompter
-    var promptext = ""
+    var promptext = "I went fishing with my dad. we caught a barracuda. hours later, it started to rain, i almost slip and fell. oh no!  I was glad I didn’t but if I did fall in, I would have been safe because I was wearing a lifejacket. I was so scared. I thought my first boat trip would be my last. Our little boat bounced like a bouncy ball on the concrete. We hooked the boat up to the car and drove off. When I got home I had a horrible dream, but that is another story!"
     @IBOutlet weak var prompter: UILabel!
     @IBOutlet weak var scrollView: UIScrollView!
-    
-    
-    
-    
-    
-    
    
     //IBOulet
     @IBOutlet weak var circularProgressView: KDCircularProgress!
@@ -41,9 +35,8 @@ class recorderViewController: UIViewController, AVAudioRecorderDelegate {
     var audioPlayer:AVAudioPlayer!
     var numberOfRecords = 0
     
-    
     //Variable Timer
-    var totalTimeInSec:Double = 10
+    var totalTimeInSec:Double = 60
     var timer : Timer?
     var timeInSec = 60.0 {
     didSet {
@@ -65,7 +58,7 @@ class recorderViewController: UIViewController, AVAudioRecorderDelegate {
     //id-ID
     
     let audioEgine = AVAudioEngine()
-    let speechRecognizer : SFSpeechRecognizer? = SFSpeechRecognizer(locale: Locale(identifier: "id-ID"))
+    let speechRecognizer : SFSpeechRecognizer? = SFSpeechRecognizer(locale: Locale(identifier: "en-US"))
     let request = SFSpeechAudioBufferRecognitionRequest()
     var task: SFSpeechRecognitionTask!
     var isStart: Bool = false
@@ -121,14 +114,13 @@ class recorderViewController: UIViewController, AVAudioRecorderDelegate {
                 displayAlert(title: "Ups!", message: "Recording failed")
             }
         }else{
-            let skrip = "mantap sekali bos";
+            let skrip = "I went fishing with my dad.we caught a barracuda.hours later,it started to rain,i almost slip and fell.oh no!  I was glad I didn’t but if I did fall in,I would have been safe because I was wearing a lifejacket.I was so scared.I thought my first boat trip would be my last.Our little boat bounced like a bouncy ball on the concrete.We hooked the boat up to the car and drove off.When I got home I had a horrible dream,but that is another story!";
             let skripLow = skrip.lowercased()
-            let result = skripLow.components(separatedBy: [" " , "," , ".","*","+","/"])
+            let result = skripLow.components(separatedBy: [" " , "," , ".","*","+","/","!","?"])
             let simpanLow = simpan!.lowercased()
            // let simpanLow = "mantap sekali berlau bos berlabu dlskadpkjas dasjdpiasj dasd kasd asd as";
-            let result2 = simpanLow.components(separatedBy: [" " , "," , ".","*","+","/"])
+            let result2 = simpanLow.components(separatedBy: [" " , "," , ".","*","+","/","!","?"])
             print(result2)
-            
             
             let total = result.count
             print(total)
@@ -183,9 +175,9 @@ class recorderViewController: UIViewController, AVAudioRecorderDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         //prompter
-        //prompter.text = promptext
+        prompter.text = promptext
         // Do any additional setup after loading the view.
-        //scrollView.contentLayoutGuide.bottomAnchor.constraint(equalTo: prompter.bottomAnchor).isActive = true
+        scrollView.contentLayoutGuide.bottomAnchor.constraint(equalTo: prompter.bottomAnchor).isActive = true
         //Req SpeechRecognition
         self.requestPermission()
         

@@ -209,7 +209,7 @@ extension ScriptUIViewController: UITableViewDataSource, UITableViewDelegate {
         let recorderViewController = storyboard?.instantiateViewController(identifier: "record") as! recorderViewController
         
         recorderViewController.dataSkrip = indexPath.row
-        recorderViewController.modalPresentationStyle = .automatic
+        recorderViewController.modalPresentationStyle = .fullScreen
         self.present(recorderViewController, animated: true)
         print("masuk")
     }
